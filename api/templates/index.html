@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>GALO for trello</title>
+    </head>
+    <body>
+        <form action="/generate" method="post">
+
+            <input type="text" name="prompt" id="prompt" placeholder="Descreva brevemente seu novo projeto" width="80%">
+            <input type="submit" value="Gerar cards">
+        </form>
+        
+        <div id="api_response">
+
+
+        </div>
+
+        <iframe src="https://trello.com/b/R0QJnEZb.html" title="Teste trello" width="100%" height="500px" >
+
+
+        </iframe>
+
+        <script>
+            $(document).ready(function () {
+             $("form").submit(function (event) {
+               var prompt = $("#prompt").val();
+               $.ajax({
+                 type: "POST",
+                 url: "/generate",
+                 data: {prompt: prompt},
+                 success: function(response) {
+                   $("#api_response").html(response);
+                 }
+               });
+               event.preventDefault();
+             });
+            });
+            </script>
+
+    </body>
+</html>
