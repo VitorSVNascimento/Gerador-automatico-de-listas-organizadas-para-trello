@@ -13,12 +13,12 @@ def generate():
     i=0
     user_prompt = request.form.get('prompt')
     
-    # create_board(user_prompt,None)
     
     cards_list = get_response(user_prompt)
     for card in cards_list:
         i+=1
         print(type(card))
+    board_code = create_board(user_prompt,cards_list)
         
-    return make_response("sucesso",200)
+    return make_response(board_code,200)
 
