@@ -2,43 +2,85 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
+         <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/materialize.min.css')}}"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"  media="screen,projection"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
         <title>GALO for trello</title>
     </head>
-    <body>
-        <form action="/generate" method="post">
 
-            <input type="text" name="prompt" id="prompt" placeholder="Descreva brevemente seu novo projeto" width="80%">
-            <input type="submit" value="Gerar cards">
-        </form>
+    <body>
+        <div class="row">
+
+          <form class="col s12" action="/generate" method="post">
+            <div class="row">
+              <div class="input-field col s6">
+
+                <textarea type="text" name="prompt" id="prompt" placeholder="Descreva brevemente seu novo projeto" class="materialize-textarea"></textarea>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                    <i class="material-icons right">send</i>
+                </button>
+
+              </div>
+            </div>
+          </form>
+
+        </div>
         
         <div id="api_response">
 
 
         </div>
 
-        <iframe id="trello_viewer" src="" title="Teste trello" width="100%" height="500px" >
+        <div id="loading_div" class="preloader-wrapper big">
+          <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+    
+          <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+    
+          <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+    
+          <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
 
-
-        </iframe>
-
-        <script>
-            $(document).ready(function () {
-             $("form").submit(function (event) {
-               var prompt = $("#prompt").val();
-               $.ajax({
-                 type: "POST",
-                 url: "/generate",
-                 data: {prompt: prompt},
-                 success: function(response) {
-                   $("#trello_viewer").attr('src', response+".html");
-                 }
-               });
-               event.preventDefault();
-             });
-            });
-            </script>
-
+        <iframe id="trello_viewer" src="" title="Teste trello" width="100%" height="500px" ></iframe>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{url_for('static',filename='js/materialize.min.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
+      
     </body>
 </html>
