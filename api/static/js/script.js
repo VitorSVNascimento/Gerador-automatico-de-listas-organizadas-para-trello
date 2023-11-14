@@ -17,7 +17,15 @@ $(document).ready(function () {
                 $("#loading_div").removeClass("active")
                 $("#trello_viewer").attr('src', response+".html");
                 $("#trello_viewer").show()
-        }
+            },
+            error: function (xhr, status, error) {
+                // Erro
+                alert(error+" = "+xhr.responseText);
+                $("#loading_div").hide()
+                $("#loading_div").removeClass("active")
+                // Adicione aqui o código para lidar com o erro, exibindo uma mensagem de erro, etc.
+            }
+           
     });
     event.preventDefault();
     });

@@ -12,13 +12,15 @@ def index():
 def generate():
     i=0
     user_prompt = request.form.get('prompt')
+    user_prompt = user_prompt.strip()
     
-    
+    if(len(user_prompt) == 0):
+        return make_response("O prompt não pode estar vazio",400)
     cards_list = get_response(user_prompt)
     for card in cards_list:
         i+=1
         print(type(card))
-    board_code = create_board(user_prompt,cards_list)
+    board_url = create_board(user_prompt,cards_list)
         
-    return make_response(board_code,200)
+    return make_response(board_url,200)
 
