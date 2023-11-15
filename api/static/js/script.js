@@ -3,7 +3,7 @@ const ENTER_CODE = 13
 $(document).ready(function () {
     $("form").submit(function (event) {
 
-        $("#trello_viewer").hide() 
+        $("#trello_viewer_div").hide() 
         $("#loading_div").addClass("active")
         $("#loading_div").show()
         var prompt = $("#prompt").val();
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 $("#loading_div").hide()
                 $("#loading_div").removeClass("active")
                 $("#trello_viewer").attr('src', response+".html");
-                $("#trello_viewer").show()
+                $("#trello_viewer_div").show()
             },
             error: function (xhr, status, error) {
                 // Erro

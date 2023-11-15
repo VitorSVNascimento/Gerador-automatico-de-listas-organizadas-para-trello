@@ -1,3 +1,52 @@
+body{
+    background-image: url('../images/farm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+}
+
 #loading_div{
     display: none;
+}
+
+#trello_viewer_div{
+    display: none;
+}
+
+#trello_viewer{
+    height: 60vh;
+    width: 100%;
+
+    border: none;
+}
+
+#title-card-color{
+    color: #212121;
+}
+
+#loading_div{
+    background-color: #fff;
+}
+
+#logo_image{
+    margin: auto;
+    width: 80%;
+}
+
+@media (min-width: 600px)  {
+    #card_div,#loading_div,#trello_viewer_div{
+        margin: auto;
+        width: 80%;
+    }
+    #logo_image{
+        width: 70%;
+    }
+    
+}
+
+@media (min-width: 1000px)  {
+    #logo_image{
+        width: 40%;
+    }
+    
 }

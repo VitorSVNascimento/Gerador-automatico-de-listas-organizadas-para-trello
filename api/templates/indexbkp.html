@@ -14,47 +14,34 @@
     <body>
       <div id="main_div" class="container">
 
-        <div id="card_div" class="row ">
-            <div class="col s12 m12 l12 center-align">
-                <div class="card ">
-                  <div class="card-image ">
-                    <img id="logo_image" src="{{url_for('static',filename='/images/GALO_AI_com_titulo_sem_fundo - vermelho.png')}}">
-                  </div>
-                  <div class="card-content">
-                    <span id="title-card-color" class="card-title">Simplificando seu fluxo de trabalho</span>
-                    <p>
-                      Bem-vindo ao GALO (Gerador Automatizado de Listas Organizadas)! 
-                      Estamos reinventando a maneira como você cria e gerencia seus cards no Trello. 
-                      Com inteligência artificial avançada, o GALO transforma seus prompts em listas organizadas de forma eficiente e intuitiva. 
-                      Simplifique seu fluxo de trabalho, economize tempo e mantenha-se focado no que realmente importa. Embarque nessa fazenda de ideias,
-                      experimente agora mesmo: digite seu prompt abaixo e descubra como o GALO pode revolucionar sua produtividade!</p>
-                  </div>
-                  <div class="row">
-                    <form class="col s12 center-align" action="/generate" method="post">
-                      <div class="row">
+        <div id="card_div" class="row">
           
-                        <div class="input-field col s12 center-align">
-          
-                          <textarea type="text" name="prompt" id="prompt" placeholder="Descreva seu projeto" class="materialize-textarea center-align"></textarea>
-                          <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Gerar cards
-                              <i class="material-icons right">send</i>
-                          </button>
-          
-                        </div>
-                      </div>
-                      
-                    </form>
-          
-                  </div>
-                </div>
+        </div>
+
+        <div class="row">
+          <form class="col s12" action="/generate" method="post">
+            <div class="row">
+
+              <div class="input-field col s12 center-align">
+
+                <textarea type="text" name="prompt" id="prompt" placeholder="Descreva seu projeto" class="materialize-textarea center-align"></textarea>
+                <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Gerar cards
+                    <i class="material-icons right">send</i>
+                </button>
+
+              </div>
             </div>
+            
+          </form>
+
         </div>
 
         <div id="loading_div" class="row">
-          <div class="col s12 m12 l12 center-align">
-
+          <div class="col s12 center-align">
+            
             <div class="preloader-wrapper big">
-              <div class="spinner-layer spinner-blue">
+
+              <!-- <div class="spinner-layer spinner-blue">
                 <div class="circle-clipper left">
                   <div class="circle"></div>
                 </div><div class="gap-patch">
@@ -92,14 +79,14 @@
                 </div><div class="circle-clipper right">
                   <div class="circle"></div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
           </div>
         </div>
 
         <div id="trello_viewer_div" class="row">
-          <div id="trello_col" class="col s12 m12 l12 center-align">
+          <div id="trello_col" class="col s12 center-align">
 
             <iframe id="trello_viewer" src="" title="Teste trello"></iframe>
 

@@ -17,6 +17,8 @@ def generate():
     if(len(user_prompt) == 0):
         return make_response("O prompt não pode estar vazio",400)
     cards_list = get_response(user_prompt)
+    if cards_list == None or len(cards_list) == 0 or 'error' in cards_list:
+        return make_response({'error':'erro ao consultar a inteligencia artificial'},500)
     for card in cards_list:
         i+=1
         print(type(card))

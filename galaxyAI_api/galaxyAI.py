@@ -31,12 +31,21 @@ def get_response(user_prompt:str) -> str:
                 }
             ]
     )
-
-    return convert_response_to_dict_list(get_message_of_response(completion))
+    try:
+        response = get_message_of_response(completion)
+        if 'error' in response:
+            return response
+        return convert_response_to_dict_list(response)
+    except Exception:
+        return {}
     # print(completion.choices[RESPONSE_POSITION])
 
 def get_message_of_response(completion:dict):
-    return completion[RESPONSE_KEY][RESPONSE_POSITION][MESSAGE_KEY][RESPONSE_CONTENT_KEY]
+    print('Completion = ',completion)
+    try:
+        return completion[RESPONSE_KEY][RESPONSE_POSITION][MESSAGE_KEY][RESPONSE_CONTENT_KEY]
+    except:
+        return completion
 
 def convert_response_to_dict_list(response:str):
     
