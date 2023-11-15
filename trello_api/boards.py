@@ -21,6 +21,7 @@ def create_board(name:str,cards) -> str:
         'name': f'{name}',
         'prefs_permissionLevel': f'{Visibility.PUBLIC.value}',
         'defaultLabels' : 'false',
+        'prefs_background':'655518d1c056632b522e2cbb',
         'key': f'{__trello_key}',
         'token': f'{__trello_token}'       
     }
@@ -36,7 +37,6 @@ def create_board(name:str,cards) -> str:
 
 def __add_cards_on_board(board_code,cards):
     to_do_list_code = __get_to_do_list_id(board_code)
-    print(f'to_do_code = {to_do_list_code}')
     for card in cards:
         __add_card_on_list(card,to_do_list_code,cards)
 
@@ -91,7 +91,6 @@ def __get_prerequisites_names(cards,prerequisites_codes):
 
 def __create_prerequisites_list(card_id,pre_requisites_names):
     url = "https://api.trello.com/1/checklists"
-    print('cards_id == ',card_id)
 
     query = {
         'idCard': card_id,
@@ -101,10 +100,8 @@ def __create_prerequisites_list(card_id,pre_requisites_names):
     }
     check_list = json.loads(call_trello_api(url,query,POST_METHOD).text)
     check_list_id = check_list['id']
-    print('check_list_id == ',check_list_id)
 
     url = f"https://api.trello.com/1/checklists/{check_list_id}/checkItems"
-    print(pre_requisites_names)
     for name in pre_requisites_names:
         query = {
             'name': f'{name}',
@@ -126,7 +123,4 @@ def __add_label_on_card(card_id,priority):
 def call_trello_api(url,query,method,headers={}):
     
     response = requests.request(method,url,params=query) if headers == {} else requests.request(method,url,headers=headers,params=query)
-    print(response.text) 
     return response
-
-        

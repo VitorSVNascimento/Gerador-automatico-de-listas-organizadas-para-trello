@@ -5,10 +5,6 @@ body{
     background-repeat: repeat-y;
 }
 
-#loading_div{
-    display: none;
-}
-
 #trello_viewer_div{
     display: none;
 }

@@ -26,8 +26,8 @@
                       Bem-vindo ao GALO (Gerador Automatizado de Listas Organizadas)! 
                       Estamos reinventando a maneira como você cria e gerencia seus cards no Trello. 
                       Com inteligência artificial avançada, o GALO transforma seus prompts em listas organizadas de forma eficiente e intuitiva. 
-                      Simplifique seu fluxo de trabalho, economize tempo e mantenha-se focado no que realmente importa. Embarque nessa fazenda de ideias,
-                      experimente agora mesmo: digite seu prompt abaixo e descubra como o GALO pode revolucionar sua produtividade!</p>
+                      Simplifique seu fluxo de trabalho, economize tempo e mantenha-se focado no que realmente importa. Explore sua fazenda de ideias
+                      agora mesmo: digite seu prompt abaixo e descubra como o GALO pode revolucionar sua produtividade!</p>
                   </div>
                   <div class="row">
                     <form class="col s12 center-align" action="/generate" method="post">
@@ -50,62 +50,66 @@
             </div>
         </div>
 
-        <div id="loading_div" class="row">
-          <div class="col s12 m12 l12 center-align">
-
-            <div class="preloader-wrapper big">
-              <div class="spinner-layer spinner-blue">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-        
-              <div class="spinner-layer spinner-red">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-        
-              <div class="spinner-layer spinner-yellow">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-        
-              <div class="spinner-layer spinner-green">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
         <div id="trello_viewer_div" class="row">
           <div id="trello_col" class="col s12 m12 l12 center-align">
 
             <iframe id="trello_viewer" src="" title="Teste trello"></iframe>
-
           </div>
         </div>
 
+      </div>
+
+          <!-- Modal Structure -->
+      <div id="loading_modal" class="modal">
+        <div class="modal-content">
+          <div id="loading_div" class="row">
+            <div class="col s12 m12 l12 center-align">
+  
+              <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-red">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-yellow">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+          
+                <div class="spinner-layer spinner-green">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
       </div>
       
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
