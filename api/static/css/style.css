@@ -1,3 +1,88 @@
+@import url(https://fonts.bunny.net/css?family=lemon:400);
+
+*, *:before {box-sizing: border-box}
+
+@supports (-ms-accelerator:true) {
+  body:before {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: block;
+  color: #985538;
+  background: #000;
+  content: "Sorry, SVG animated transform not currently supported in IE/Edge";
+  font: normal 120%/1.5 sans-serif;
+  background-repeat: repeat-y;
+  }
+}
+
+/* via https://css-tricks.com/centering-in-the-unknown/ */
+.center {
+	height: 100%;
+}
+
+.center:before {
+  content: '';
+  display: inline-block;
+  height: 100%; 
+  vertical-align: middle;
+ }
+ 
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  width: 33%;
+  min-width: 300px
+ }
+
+/*SVG Styling*/ 
+.chicken {
+	fill: #985538
+}	
+.swing {
+	fill: #f5f5f5
+}
+
+#swinging {
+	transform-origin: top center;
+	animation: swingme 2s ease-in-out 0s infinite;
+}
+	
+@keyframes swingme {
+	0%, 100% {
+		transform: rotate(10deg);
+	}	
+	50% {
+		transform: rotate(-10deg);
+	}	
+}
+
+#shadow {
+	fill: #333;
+	fill-opacity: .1;
+	animation: shadow 2s ease-in-out 0s infinite;
+}
+
+@keyframes shadow {
+	0%, 100% {
+		transform: translateX(-2em);
+	}
+	50% {
+		transform: translateX(2em);
+	}
+}
+
+#loading {
+	font-family: 'Lemon', Chalk board, cursive, serif;
+	font-size: 40px;
+  font-weight: bold;
+	font-style: italic;
+	fill: #985538;
+	color: #985538;
+}
+
+
+
 body{
     background-image: url('../images/farm.jpg');
     background-size: cover;

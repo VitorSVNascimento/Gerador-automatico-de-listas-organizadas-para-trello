@@ -10,7 +10,6 @@ def index():
 
 @server.app.route('/generate',methods = ['POST'])
 def generate():
-    i=0
     user_prompt = request.form.get('prompt')
     user_prompt = user_prompt.strip()
     
@@ -19,9 +18,6 @@ def generate():
     cards_list = get_response(user_prompt)
     if cards_list == None or len(cards_list) == 0 or 'error' in cards_list:
         return make_response({'error':'erro ao consultar a inteligencia artificial'},500)
-    for card in cards_list:
-        i+=1
-        print(type(card))
     board_url = create_board(user_prompt,cards_list)
         
     return make_response(board_url,200)
