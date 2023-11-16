@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 import requests
 import json
+import concurrent.futures
 
 from trello_api.enums.visibility import Visibility
 from trello_api.labels import labels
@@ -31,16 +32,14 @@ def create_board(name:str,cards) -> str:
 
     board_code = response_data['id']
     short_url = response_data['shortUrl']
-    # __add_labels_on_board(board_id)
+
     __add_cards_on_board(board_code,cards)
     return short_url
 
 def __add_cards_on_board(board_code,cards):
-    to_do_list_code = __get_to_do_list_id(board_code)
-    for card in cards:
-        __add_card_on_list(card,to_do_list_code,cards)
-
-    pass
+    to_do_code = __get_to_do_list_id(board_code)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=os.cpu_count()) as executor:
+        list(executor.map(__add_card_on_list, cards, [to_do_code]*len(cards), [cards]*len(cards)))
 
 def __get_to_do_list_id(board_code):
     url = f"https://api.trello.com/1/boards/{board_code}/lists"
@@ -67,13 +66,14 @@ def __add_card_on_list(card,list_id,card_list):
 
     name = card['nome']
     description = card['descricao']
+    position = int(card['id'])
     prerequisites = card['pre_requisitos']
     priority = card['prioridade']
     query = {
         'idList': list_id,
         'name':name,
         'desc':description,
-        'pos':'bottom',
+        'pos':position,
         'key': f'{__trello_key}',
         'token': f'{__trello_token}'
     }
