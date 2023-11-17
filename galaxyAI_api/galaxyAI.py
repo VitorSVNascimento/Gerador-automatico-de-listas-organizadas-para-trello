@@ -71,6 +71,7 @@ def convert_response_to_dict_list(response:str):
         list_str = list_str.replace("'", "\"")
 
         # Corrigir a formatação dos objetos JSON
+        print(list_str)
 
         # Converter a string em uma lista de dicionários
         try:
