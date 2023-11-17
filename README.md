@@ -50,7 +50,7 @@
 ![Form power up](assets/new_power_up_form.png)
 
 5. Após isso clique no botão "Generate a new API key", e confirme na janela modal que irá aparecer.
-![Generate a new key](assets/api_key_gen.png)
+![Generate a new key](assets/Api_key_gen.png)
 
 6. Pronto! Sua chave de API está gerada, agora falta o token, na tela onde voce encontra a chave de api clique no link destacado na imagem abaixo
 ![Api key](assets/api_key_generate.png)
