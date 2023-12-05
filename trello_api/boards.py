@@ -13,11 +13,13 @@ __trello_token = os.getenv('TRELLO_API_TOKEN')
 POST_METHOD = 'POST'
 GET_METHOD = 'GET'
 TO_DO_POSITION = 0
+TITLE_MAX_LEN = 40
 
 def create_board(name:str,cards) -> str:
 
     BOARDS_URL = 'https://api.trello.com/1/boards/'
-
+    if len(name) > TITLE_MAX_LEN:
+        name = name[0:TITLE_MAX_LEN]
     query = {
         'name': f'{name}',
         'prefs_permissionLevel': f'{Visibility.PUBLIC.value}',
